@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+cd ../fw
+sdcc -c rsa.c
+sdcc secureboot.c rsa.rel
+python3 ../scripts/gen_text.py secureboot.ihx ../rom/secureboot.dat

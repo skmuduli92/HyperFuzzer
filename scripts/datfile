@@ -1,0 +1,3 @@
+cd ../fw
+sdcc aes_counter_test.c
+python3 ../scripts/gen_text.py aes_counter_test.ihx ../rom/aes_test.dat

@@ -1,0 +1,9 @@
+sim
+Voc8051_*
+afl-out/fuzz_bitmap
+afl-out/queue/*
+secureboot
+bootloader
+bootfuzzer
+aes_test
+sha_test

@@ -1,0 +1,7 @@
+cd ../rtl
+./build_model.sh
+cd ../scripts
+./datfile
+cd ../fuzztest_mux_cov
+make
+./sim
