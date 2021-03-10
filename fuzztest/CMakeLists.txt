@@ -31,6 +31,17 @@ add_subdirectory(libprop)
 # Create a new executable target that will contain all your sources
 set_source_files_properties(afl.c PROPERTIES LANGUAGE CXX)
 
+# coverage metric feature
+option(ENABLE_MUX_COVERAGE "Verilator --coverage-toggle" OFF)
+
+if(ENABLE_MUX_COVERAGE)
+  message(STATUS "MUX COVERAGE : ON")
+  add_definitions(-DMUX_COV_ENABLED)
+else()
+  message(STATUS "MUX COVERAGE : OFF")
+endif()
+
+
 # Add the Verilated circuit to the target
 file(GLOB RTL_SRC
   ${RTL_DIR}/oc8051_tb.v
@@ -94,7 +105,7 @@ file(GLOB RTL_SRC
 add_library(verilatorsim STATIC)
 
 verilate(verilatorsim
-  VERILATOR_ARGS -Wno-UNOPTFLAT -Wno-CASEINCOMPLETE -Wno-CASEX -Wno-WIDTH -Wno-PINMISSING   -Wno-STMTDLY -Wno-IMPLICIT -Wno-LITENDIAN -Wno-INITIALDLY -Wno-MODDUP --top-module oc8051_tb --x-assign fast --x-initial fast --noassert
+  VERILATOR_ARGS -Wno-UNOPTFLAT -Wno-CASEINCOMPLETE -Wno-CASEX -Wno-WIDTH -Wno-PINMISSING   -Wno-STMTDLY -Wno-IMPLICIT -Wno-LITENDIAN -Wno-INITIALDLY -Wno-MODDUP --top-module oc8051_tb --x-assign fast --x-initial fast --noassert --coverage-toggle
   DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/verilatorsim
   INCLUDE_DIRS ${RTL_DIR}
   SOURCES ${RTL_SRC}
