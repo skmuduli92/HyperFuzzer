@@ -12,26 +12,17 @@ Then follow these steps below to run an experiment.
    autoconf && ./configure && make -j4
    ```
 
-2. **Building and test examples**
-    - Building with CMake
-         ```bash
-         cd $PROJECT_ROOT/fuzztest
-         mkdir build && cd build && make aes_test -j4
-         cd bin
-         ```
-         *You must change directory to bin directory while executing any example else some of the relative paths will not get resolved properly*
-     
-    - Building with Makefile
-   
-        - Build `libprop`
-     
-           ```bash
-           cd $PROJECT_ROOT/fuzztest/libprop
-           mkdir build && cd build && cmake .. && make -j4
-           ```
-         - Building example `aes_test`
-     
-           ```bash
-           cd $PROJECT_ROOT/fuzztest
-           make aes_test
-           ```
+2. **Building and test examples**    
+      
+	- Build `libprop` first
+
+	   ```bash
+	   cd $PROJECT_ROOT/fuzztest/libprop
+	   mkdir build && cd build && cmake .. && make -j4
+	   ```
+	 - Building example `aes_test`
+
+	   ```bash
+	   cd $PROJECT_ROOT/fuzztest
+	   make aes_test
+	   ```
