@@ -31,6 +31,6 @@ Then follow these steps below to run an experiment.
 	- Run `sudo ./$PROJECT_ROOT/fuzztest/kernel-config.sh` to setup system to run afl.
 
 4. **Run test using `run.sh` script**
-	- ./run.sh ./aes_test <test-timeout>
+	- ./run.sh ./aes_test [test-timeout]
  
 
